@@ -9,7 +9,7 @@ class ReviewYourFeedback extends Component {
                 <p>Feeling: {this.props.reduxState.feelingReducer} </p>
                 <p>Understanding: {this.props.reduxState.understandingReducer} </p>
                 <p>Support: {this.props.reduxState.supportReducer}</p>
-                <p>Comments: </p>
+                <p>Comments: {this.props.reduxState.commentReducer}</p>
             </div>
         )
     }
