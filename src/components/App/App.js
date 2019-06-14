@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
@@ -17,15 +18,17 @@ class App extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-        <HowAreYouFeeling />
-        <Understanding />
-        <Support />
-        <Comments />
-        <ReviewYourFeedback />
-        
-        <br/>
+        <Router>
+          <Route path ="/" exact ={true} component={HowAreYouFeeling}/>
+          <Route path = "/understanding" component={Understanding} />
+          <Route path = "/support" component={Support} />
+          <Route path = "/comments" component={Comments} />
+          <ReviewYourFeedback /> 
+        </Router>
+
+        <br />
       </div>
-    );  
+    );
   }
 }
 
