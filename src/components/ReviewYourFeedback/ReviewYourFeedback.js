@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class ReviewYourFeedback extends Component {
     render(){
         return (
             <div>
                 <h2>Review Your Feedback</h2>
-                <p>Feeling: </p>
+                <p>Feeling: {this.props.reduxState.feelingReducer} </p>
                 <p>Understanding: </p>
                 <p>Support: </p>
                 <p>Comments: </p>
@@ -14,4 +15,8 @@ class ReviewYourFeedback extends Component {
     }
 }
 
-export default ReviewYourFeedback;
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState: reduxState,
+})
+
+export default connect(mapReduxStateToProps)(ReviewYourFeedback);
