@@ -6,6 +6,8 @@ import './App.css';
 import HowAreYouFeeling from '../HowAreYouFeeling/HowAreYouFeeling';
 import ReviewYourFeedback from '../ReviewYourFeedback/ReviewYourFeedback';
 import Understanding from '../Understanding/Understanding';
+import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
 
 class App extends Component {
   render() {
@@ -17,7 +19,10 @@ class App extends Component {
         </header>
         <HowAreYouFeeling />
         <Understanding />
+        <Support />
+        <Comments />
         <ReviewYourFeedback />
+        
         <br/>
       </div>
     );  
