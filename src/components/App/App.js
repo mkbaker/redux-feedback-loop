@@ -4,6 +4,7 @@ import './App.css';
 
 //components
 import HowAreYouFeeling from '../HowAreYouFeeling/HowAreYouFeeling';
+import ReviewYourFeedback from '../ReviewYourFeedback/ReviewYourFeedback';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <HowAreYouFeeling />
+        <ReviewYourFeedback />
         <br/>
       </div>
     );  
