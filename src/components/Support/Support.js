@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Support extends Component {
+    handleNext = () => {
+        this.props.history.push('/comments');
+    }
+
     render() {
         return (
             <div>
@@ -8,7 +12,7 @@ class Support extends Component {
 
                 <span className="inputAndNext">
                     <input type="number" placeholder="Support?" />
-                    <button>Next</button>
+                    <button onClick={this.handleNext}>Next</button>
                 </span>
 
             </div>

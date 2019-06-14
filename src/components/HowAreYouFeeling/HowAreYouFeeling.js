@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class HowAreYouFeeling extends Component {
+
+    handleNext = () => {
+        this.props.history.push('/understanding');
+    }
     render(){
         return (
             <div>
@@ -8,7 +12,7 @@ class HowAreYouFeeling extends Component {
 
                 <span className="inputAndNext">
                 <input type="number" placeholder="Feeling?"/>
-                <button>Next</button>
+                <button onClick={this.handleNext}>Next</button>
                 </span>
 
             </div>

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Understanding extends Component {
+    handleNext = () => {
+        this.props.history.push('/support');
+    }
+
     render() {
         return (
             <div>
@@ -8,7 +12,7 @@ class Understanding extends Component {
                 
                 <span className="inputAndNext">
                     <input type="number" placeholder="Understanding?" />
-                    <button>Next</button>
+                    <button onClick={this.handleNext}>Next</button>
                 </span>
 
             </div>

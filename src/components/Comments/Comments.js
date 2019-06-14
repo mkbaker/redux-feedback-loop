@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class Comments extends Component {
+    handleNext = () => {
+        this.props.history.push('/submit');
+    }
     render() {
         return (
             <div>
@@ -8,7 +11,7 @@ class Comments extends Component {
 
                 <span className="inputAndNext">
                     <input type="text" placeholder="Comments?" />
-                    <button>Next</button>
+                    <button onClick={this.handleNext}>Next</button>
                 </span>
 
             </div>
