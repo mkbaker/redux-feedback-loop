@@ -7,7 +7,7 @@ class ReviewYourFeedback extends Component {
             <div>
                 <h2>Review Your Feedback</h2>
                 <p>Feeling: {this.props.reduxState.feelingReducer} </p>
-                <p>Understanding: </p>
+                <p>Understanding: {this.props.reduxState.understandingReducer} </p>
                 <p>Support: </p>
                 <p>Comments: </p>
             </div>
