@@ -11,10 +11,26 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 
+//material ui
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { createMuiTheme } from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/teal';
+import cyan from '@material-ui/core/colors/cyan';
+import red from '@material-ui/core/colors/red';
+const theme = createMuiTheme({
+  palette: {
+    primary: teal,
+    secondary: cyan,
+    error: red,
+  }
+})
+
 class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* MuiThemeProvider allows us to use material-ui */}
+        <MuiThemeProvider theme={theme}>
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
@@ -29,12 +45,13 @@ class App extends Component {
           <Route path = "/comments" component={Comments} />
           <ReviewYourFeedback /> 
         </Router>
-        
+
         <br />
 
         <pre>
           {JSON.stringify(this.props, null, 2)}
         </pre>
+        </MuiThemeProvider>
       </div>
     );
   }
