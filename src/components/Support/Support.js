@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+//material-ui
+import Button from '@material-ui/core/button';
+import Input from '@material-ui/core/Input';
+
 class Support extends Component {
     state = {
         support: '', 
@@ -26,8 +30,9 @@ class Support extends Component {
                 <h2>How well are you being supported?</h2>
 
                 <span className="inputAndNext">
-                    <input type="number" placeholder="Support?" onChange={this.handleChange} />
-                    <button onClick={this.handleNext}>Next</button>
+                    <Input type="number" placeholder="Support?" onChange={this.handleChange} />
+                    <br />
+                    <Button variant='contained' color='primary'onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>

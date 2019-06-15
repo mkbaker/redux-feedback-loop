@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+//material-ui
+import Button from '@material-ui/core/button';
+import Input from '@material-ui/core/Input';
+
 class HowAreYouFeeling extends Component {
     state = {
         feeling: '',
@@ -25,8 +29,9 @@ class HowAreYouFeeling extends Component {
                 <h2>How are you feeling today?</h2>
 
                 <span className="inputAndNext">
-                <input type="number" placeholder="Feeling?" onChange={this.handleChange}/>
-                <button onClick={this.handleNext}>Next</button>
+                <Input type="number" placeholder="Feeling?" onChange={this.handleChange}></Input>
+                <br/>
+                <Button variant='contained' color='primary' onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>

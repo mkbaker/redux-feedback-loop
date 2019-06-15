@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+//material-ui
+import Button from '@material-ui/core/button';
+import Input from '@material-ui/core/Input';
+
 class Comments extends Component {
     state = {
         comments: '', 
@@ -25,8 +29,9 @@ class Comments extends Component {
                 <h2>Any comments you want to leave?</h2>
 
                 <span className="inputAndNext">
-                    <input type="text" placeholder="Comments?" onChange={this.handleChange}/>
-                    <button onClick={this.handleNext}>Next</button>
+                    <Input type="text" placeholder="Comments?" onChange={this.handleChange}/>
+                    <br />
+                    <Button variant='contained' color='primary' onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>
