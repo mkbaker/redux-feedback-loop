@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from "axios";
+//to link to first page, import link component
+// import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 //material ui
 import Button from '@material-ui/core/button';
@@ -45,14 +48,27 @@ class ReviewYourFeedback extends Component {
             <p>Support: {this.props.reduxState.supportReducer}</p>
             <p>Comments: {this.props.reduxState.commentReducer}</p>
 
-            <Button
-              //disabled={!isEnabled}
-              onClick={this.handleClick}
-              variant="contained"
-              color="primary"
-            >
-              Submit
-            </Button>
+            {this.props.location.pathname === "/" ||
+            this.props.location.pathname === "/understanding" ||
+            this.props.location.pathname === "/support" ||
+            this.props.location.pathname === "/comments" ? (
+              <>
+                <Button variant="contained" disabled={true}>
+                  Incomplete
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  //disabled={!isEnabled}
+                  onClick={this.handleClick}
+                  variant="contained"
+                  color="primary"
+                >
+                  Submit
+                </Button>
+              </>
+            )}
           </div>
         );
     }
@@ -62,4 +78,4 @@ const mapReduxStateToProps = (reduxState) => ({
     reduxState: reduxState,
 })
 
-export default connect(mapReduxStateToProps)(ReviewYourFeedback);
+export default withRouter(connect(mapReduxStateToProps)(ReviewYourFeedback));
