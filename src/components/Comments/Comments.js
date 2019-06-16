@@ -24,6 +24,9 @@ class Comments extends Component {
         this.props.history.push('/submit');
     }
     render() {
+        //setup variables for enabling button
+        const { comments } = this.state;
+        const isEnabled = comments.length > 0;
         return (
             <div>
                 <h2>Any comments you want to leave?</h2>
@@ -31,7 +34,7 @@ class Comments extends Component {
                 <span className="inputAndNext">
                     <Input type="text" placeholder="Comments?" onChange={this.handleChange}/>
                     <br />
-                    <Button variant='contained' color='primary' onClick={this.handleNext}>Next</Button>
+                    <Button disabled={!isEnabled} variant='contained' color='primary' onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>

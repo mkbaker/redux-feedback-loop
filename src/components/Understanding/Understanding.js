@@ -25,6 +25,9 @@ class Understanding extends Component {
     }
 
     render() {
+        //setup variables for enabling button
+        const { understanding } = this.state;
+        const isEnabled = understanding.length > 0;
         return (
             <div>
                 <h2>How well are you understanding the content?</h2>
@@ -32,7 +35,7 @@ class Understanding extends Component {
                 <span className="inputAndNext">
                     <Input type="number" placeholder="Understanding?" onChange={this.handleChange}/>
                     <br/>
-                    <Button variant='contained' color='primary'onClick={this.handleNext}>Next</Button>
+                    <Button disabled={!isEnabled} variant='contained' color='primary'onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>

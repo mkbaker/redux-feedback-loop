@@ -9,6 +9,7 @@ class HowAreYouFeeling extends Component {
     state = {
         feeling: '',
     }
+    
 
     handleChange = (event) => {
         this.setState({
@@ -24,6 +25,10 @@ class HowAreYouFeeling extends Component {
         this.props.history.push('/understanding');
     }
     render(){
+        //setup variables for enabling button
+        const {feeling} = this.state; 
+        const isEnabled = feeling.length > 0;
+        
         return (
             <div>
                 <h2>How are you feeling today?</h2>
@@ -31,7 +36,7 @@ class HowAreYouFeeling extends Component {
                 <span className="inputAndNext">
                 <Input type="number" placeholder="Feeling?" onChange={this.handleChange}></Input>
                 <br/>
-                <Button variant='contained' color='primary' onClick={this.handleNext}>Next</Button>
+                <Button disabled={!isEnabled} variant='contained' color='primary' onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>

@@ -25,6 +25,9 @@ class Support extends Component {
     }
 
     render() {
+        //setup variables for enabling button
+        const { support } = this.state;
+        const isEnabled = support.length > 0;
         return (
             <div>
                 <h2>How well are you being supported?</h2>
@@ -32,7 +35,7 @@ class Support extends Component {
                 <span className="inputAndNext">
                     <Input type="number" placeholder="Support?" onChange={this.handleChange} />
                     <br />
-                    <Button variant='contained' color='primary'onClick={this.handleNext}>Next</Button>
+                    <Button disabled={!isEnabled} variant='contained' color='primary'onClick={this.handleNext}>Next</Button>
                 </span>
 
             </div>
