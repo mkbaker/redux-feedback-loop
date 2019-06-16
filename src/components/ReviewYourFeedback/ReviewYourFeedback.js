@@ -10,6 +10,7 @@ import Button from '@material-ui/core/button';
 
 class ReviewYourFeedback extends Component {
     handleClick = () => {
+        //alert user
         alert('Feedback submitted!');
         
         //post to server/database
@@ -23,10 +24,12 @@ class ReviewYourFeedback extends Component {
             this.props.reduxState.commentReducer,
           ],
         })
+
         //clear reduxState
         this.props.dispatch({
             type: 'CLEAR_REDUCERS', 
         });
+
         //navigate to success page
         this.props.history.push('/success');
         
@@ -34,33 +37,20 @@ class ReviewYourFeedback extends Component {
     }
  
     render(){
-        // const isEnabled = false; 
-        // if (this.props.location.pathname === '/submit') {
-        //     isEnabled = true;
-        // }
+        
         return (
           <div>
             <h2>Review Your Feedback</h2>
             <p>Feeling: {this.props.reduxState.feelingReducer} </p>
             <p>
               Understanding:{" "}
-              {this.props.reduxState.understandingReducer}{" "}
+              {this.props.reduxState.understandingReducer}
             </p>
             <p>Support: {this.props.reduxState.supportReducer}</p>
             <p>Comments: {this.props.reduxState.commentReducer}</p>
 
-
             {/* this ternary operator will disable the submit button until we are on the url '/submit' */}
-            {this.props.location.pathname === "/" ||
-            this.props.location.pathname === "/understanding" ||
-            this.props.location.pathname === "/support" ||
-            this.props.location.pathname === "/comments" ? (
-              <>
-                <Button variant="contained" disabled={true}>
-                  Incomplete
-                </Button>
-              </>
-            ) : (
+            {this.props.location.pathname === "/submit" ? (
               <>
                 <Button
                   //disabled={!isEnabled}
@@ -69,6 +59,12 @@ class ReviewYourFeedback extends Component {
                   color="primary"
                 >
                   Submit
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="contained" disabled={true}>
+                  Incomplete
                 </Button>
               </>
             )}
