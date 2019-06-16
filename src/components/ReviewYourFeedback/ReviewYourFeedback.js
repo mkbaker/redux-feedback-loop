@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from "axios";
-//to link to first page, import link component
-// import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
+//import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 //material ui
@@ -28,6 +28,7 @@ class ReviewYourFeedback extends Component {
             type: 'CLEAR_REDUCERS', 
         });
         //navigate to success page
+        this.props.history.push('/success');
         
         
     }
@@ -48,6 +49,8 @@ class ReviewYourFeedback extends Component {
             <p>Support: {this.props.reduxState.supportReducer}</p>
             <p>Comments: {this.props.reduxState.commentReducer}</p>
 
+
+            {/* this ternary operator will disable the submit button until we are on the url '/submit' */}
             {this.props.location.pathname === "/" ||
             this.props.location.pathname === "/understanding" ||
             this.props.location.pathname === "/support" ||
