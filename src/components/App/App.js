@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
 
 //components
@@ -10,6 +10,7 @@ import ReviewYourFeedback from '../ReviewYourFeedback/ReviewYourFeedback';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
+import Success from '../Success/Success';
 
 //material ui
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
@@ -41,11 +42,12 @@ class App extends Component {
           </Router>
         </header>
         <Router>
-          
+
           <Route path ="/" exact ={true} component={HowAreYouFeeling}/>
           <Route path = "/understanding" component={Understanding} />
           <Route path = "/support" component={Support} />
           <Route path = "/comments" component={Comments} />
+          <Route path ="/success" component={Success} />
           <ReviewYourFeedback /> 
         </Router>
 

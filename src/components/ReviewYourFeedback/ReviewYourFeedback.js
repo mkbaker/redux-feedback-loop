@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from "axios";
+
+//material ui
 import Button from '@material-ui/core/button';
 
 class ReviewYourFeedback extends Component {
@@ -7,11 +10,22 @@ class ReviewYourFeedback extends Component {
         alert('Feedback submitted!');
         
         //post to server/database
+        axios({
+          method: 'POST', 
+          url: '/submit', 
+          data: [
+            this.props.reduxState.feelingReducer,
+            this.props.reduxState.understandingReducer,
+            this.props.reduxState.supportReducer,
+            this.props.reduxState.commentReducer,
+          ],
+        })
         //clear reduxState
         this.props.dispatch({
             type: 'CLEAR_REDUCERS', 
         });
-        //navigate back to home 
+        //navigate to success page
+        
         
     }
  
