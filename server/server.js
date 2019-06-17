@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
+//post route to submit reduxState to database
 app.post('/submit', (req, res) => {
     console.log(req.body);
     pool.query(

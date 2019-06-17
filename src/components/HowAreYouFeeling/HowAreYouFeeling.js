@@ -6,17 +6,20 @@ import Button from '@material-ui/core/button';
 import Input from '@material-ui/core/Input';
 
 class HowAreYouFeeling extends Component {
+    //local state holds input
     state = {
         feeling: '',
     }
     
-
+    //update state upon input
     handleChange = (event) => {
         this.setState({
             feeling: event.target.value
         })
     }
 
+    //on click, store feeling in redux and 
+    //move to next component
     handleNext = () => {
         this.props.dispatch({
             type: 'SET_FEELING',
@@ -28,7 +31,7 @@ class HowAreYouFeeling extends Component {
         //setup variables for enabling button
         const {feeling} = this.state; 
         const isEnabled = feeling.length > 0;
-        
+
         return (
             <div>
                 <h2>How are you feeling today?</h2>

@@ -4,6 +4,8 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 // import axios from 'axios';
 import './App.css';
 
+
+
 //components
 import HowAreYouFeeling from '../HowAreYouFeeling/HowAreYouFeeling';
 import ReviewYourFeedback from '../ReviewYourFeedback/ReviewYourFeedback';
@@ -11,6 +13,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Success from '../Success/Success';
+import Header from '../Header/Header';
 
 //material ui
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
@@ -33,29 +36,32 @@ class App extends Component {
 
         {/* MuiThemeProvider allows us to use material-ui */}
         <MuiThemeProvider theme={theme}>
+          
+          <Header />
 
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
           <Router>
             <Link to = '/'>Home</Link>
           </Router>
-        </header>
+        
         <Router>
-
+          {/* these routes define url for components */}
           <Route path ="/" exact ={true} component={HowAreYouFeeling}/>
           <Route path = "/understanding" component={Understanding} />
           <Route path = "/support" component={Support} />
           <Route path = "/comments" component={Comments} />
           <Route path ="/success" component={Success} />
-          <ReviewYourFeedback /> 
+
+          {/* review component always on dom */}
+          <ReviewYourFeedback />
+          
         </Router>
 
         <br />
 
-        <pre>
+        {/* enable this to view reduxState information */}
+        {/* <pre>
           {JSON.stringify(this.props, null, 2)}
-        </pre>
+        </pre> */}
         </MuiThemeProvider>
       </div>
     );
